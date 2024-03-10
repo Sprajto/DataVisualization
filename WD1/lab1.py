@@ -1,0 +1,1 @@
+# TODO zadania z lab1.pdf
