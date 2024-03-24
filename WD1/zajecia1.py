@@ -1,4 +1,4 @@
-import sys
+# import sys
 
 # komentowanie / odkomentowanie ctrl + /
 # nazwy zmiennych rozdzielamy podloga - przyjete tak jest w libach, camelCase działą

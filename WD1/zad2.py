@@ -1,13 +1,11 @@
 # Zad 1. Napisz skrypt, który pobiera od użytkownika zdanie i liczy ilość słów. Użyj funkcji input
 a = str(input())
-print("Liczba slow w podanym slowie", a.count(' ')+1)
+print("Liczba slow w podanym slowie", a.count(' ') + 1)
 
 """
-Zad 2. Napisz skrypt gdzie pobierzesz trzy liczby całkowite, gdzie wykonasz obliczenia: ab + c.
+Zad 2. Napisz skrypt gdzie pobierzesz trzy liczby całkowite, gdzie wykonasz obliczenia: a**b + c.
 Użyj funkcji readline() i write()).
 """
-
-
 
 # Zad3. Napisz skrypt, który sprawdzi czy wczytany napis jest palindromem.
 # TODO do funkcji
@@ -18,15 +16,36 @@ if string_as_list == list(string):
     print("palidrom")
 else:
     print("nie palidrom")
+
+# Zad4. Napisz skrypt, który sprawdzi czy wczytana liczba jest pierwsza.
+
+
+# Zad5. Napisz skrypt, który sprawdzi ile jest liczb doskonałych do liczby 1000.
+# liczba doskonała - liczba naturalna,
+# która jest sumą wszystkich swych naturalnych dzielników właściwych (to znaczy od niej mniejszych)
+
 """
-Zad4. Napisz skrypt, który sprawdzi czy wczytana liczba jest pierwsza.
-Zad5. Napisz skrypt, który sprawdzi ile jest liczb doskonałych do liczby 1000.
 Zad 6. Napisz skrypt, gdzie stworzysz listę składającą się z liczb typu int i float. 
 Następnie za pomocą użycia pętli for podnieś każdą liczbę do kwadratu.
+"""
+lista = [1, 2, 3.3333, 4.4444]
+for i in range(len(lista)):
+    lista[i] = (lista[i] ** 2)
+print(lista)
+"""
 Zad 7. Napisz skrypt, który za pomocą pętli while pobiera 10 liczb, 
 następnie dodaje do listy tylko parzyste liczby.
 """
-
+lista = []
+i = 0
+j = 0
+while (i < 10):
+    tmp = int(input())
+    if (tmp % 2 == 0):
+        lista[j] = tmp
+        j += 1
+    i += 1
+print(lista)
 """
 Zad 8. Napisz skrypt, w którym utworzysz listę z elementami dowolnego typu. 
 Utwórz słownik, gdzie klucze będą poszczególnymi elementami z listy, 
