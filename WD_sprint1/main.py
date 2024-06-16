@@ -28,3 +28,7 @@ try:
         print(x - y)
 except ValueError:
     print("Unable to convert input value to floating-point number")
+
+# task 3 list
+# task 4 dict
+# task 5 files

@@ -1,0 +1,86 @@
+import numpy as np
+
+numpy.array(object, dtype=None, *, copy=True, order='K', subok=False, ndmin=0, like=None)
+
+object - to co ma być wrzucone do tablicy
+dtype - typ
+copy - czy obiekty mają być skopiowane, domyślne True
+order - sposób układania: C (rzędy), F (kolumny), A, K
+subok - realizowane przez podklasy (jeśli True), domyślnie False
+ndmin - minimalny rozmiar (wymiar) tablicy
+like - tworzenie na podstawie tablic referencyjnej
+
+tab = np.array([2, -3, 4])
+
+tab = np.zeros(4)
+print(tab)
+print(tab.shape)
+
+tab = np.ones(4)
+print(tab)
+print(tab.shape)
+
+print("tab0")
+tab0 = np.diag([3, 4, 5])
+print(tab0)
+
+e = np.arange(0, 1, 0.1)
+print(e)
+f = np.arange(3, 11, 2, dtype=float)
+print(f)
+
+a = np.linspace(2.0, 3.0, num=5)
+print(a)
+b = np.linspace(2.0, 3.0, num=5, endpoint=False)
+print(b)
+
+#### krojenie / slice
+
+a = np.array([2, 5, -2, 4, -7, 8, 9, 11, -23, -4, -7, 16, 1])
+1print("1:", a[5])
+2print("2:", a[-2])
+3print("3:", a[3:6])
+4print("4:", a[:])
+5print("5:", a[0:-1])
+6print("6:", a[:5])
+
+
+print("a")
+a = np.array([[3, 4, 5], [-3, 4, 8], [3, 2, 9]])
+print(a)
+print("b")
+b = np.reshape(a, (1, 9))
+print(b)
+print("c")
+c = a.reshape(9)
+print(c)
+
+
+a = np.array([[1, 2], [3, 4]])
+b = np.array([[5, 6]])
+print("r1")
+r1 = np.concatenate((a, b))
+print(r1)
+print("r2")
+r2 = np.concatenate((a, b), axis=0)
+print(r2)
+print("r3")
+r3 = np.concatenate((a, b.T), axis=1)
+print(r3)
+print("r4")
+r4 = np.concatenate((a, b), axis=None)
+print(r4)
+
+
+Funkcja	Opis
+np.mean	Średnia wszystkich wartości w tablicy.
+np.std	Odchylenie standardowe.
+np.var	Wariancja.
+np.sum	Suma wszystkich elementów.
+np.prod	Iloczyn wszystkich elementów.
+np.cumsum	Skumulowana suma wszystkich elementów.
+np.cumprod	Skumulowany iloczyn wszystkich elementów.
+np.min,np.max	Minimalna/maksymalna wartość w tablicy.
+np.argmin, np.argmax	Indeks minimalnej/maksymalnej wartości w tablicy.
+np.all	Sprawdza czy wszystki elementy są różne od zera.
+np.any	Sprawdza czy co najmniej jeden z elementów jest różny od zera.

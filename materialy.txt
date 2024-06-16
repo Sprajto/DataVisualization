@@ -1,0 +1,156 @@
+import numpy as np
+
+numpy.array(object, dtype=None, *, copy=True, order='K', subok=False, ndmin=0, like=None)
+
+object - to co ma być wrzucone do tablicy
+dtype - typ
+copy - czy obiekty mają być skopiowane, domyślne True
+order - sposób układania: C (rzędy), F (kolumny), A, K
+subok - realizowane przez podklasy (jeśli True), domyślnie False
+ndmin - minimalny rozmiar (wymiar) tablicy
+like - tworzenie na podstawie tablic referencyjnej
+
+import numpy as np
+
+1a = np.array([1, 2, 3])
+print("a:", a)
+2print("typ a:", type(a))
+3b = np.array([1, 2, 3.0])
+print("b:", b)
+4c = np.array([[1, 2], [3, 4]])
+print("c:", c)
+5d = np.array([1, 2, 3], ndmin=2)
+print("d:", d)
+6e = np.array([1, 2, 3], dtype=complex)
+print("e:", e)
+7f = np.array(np.mat('1 2; 3 4'))
+print("f:", f)
+8g = np.array(np.mat('1 2; 3 4'), subok=True)
+print("g:", g)
+print(type(g))
+
+import numpy as np
+
+tab1 = np.array([2, -3, 4, -8, 1])
+print("typ:", type(tab1))
+print("shape:", tab1.shape)
+print("size:", tab1.size)
+print("ndim:", tab1.ndim)
+print("nbytes:", tab1.nbytes)
+print("dtype:", tab1.dtype)
+
+import numpy as np
+
+tab2 = np.array([[2, -3], [4, -8]])
+print("typ:", type(tab2))
+print("shape:", tab2.shape)
+print("size:", tab2.size)
+print("ndim:", tab2.ndim)
+print("nbytes:", tab2.nbytes)
+print("dtype:", tab2.dtype)
+
+import numpy as np
+
+tab = np.array([[2, -3], [4, -8]])
+print(tab)
+tab2 = np.array([[2, -3], [4, -8]], dtype=int)
+print(tab2)
+tab3 = np.array([[2, -3], [4, -8]], dtype=float)
+print(tab3)
+tab4 = np.array([[2, -3], [4, -8]], dtype=complex)
+print(tab4)
+
+
+import numpy as np
+
+tab = np.array([2, -3, 4])
+print(tab)
+print("size:", tab.size)
+tab2 = np.array((4, -3, 3, 2))
+print(tab2)
+print("size:", tab2.size)
+tab3 = np.array({3, 3, 2, 5, 2})
+print(tab3)
+print("size:", tab3.size)
+tab4 = np.array({"pl": 344, "en": 22})
+print(tab4)
+print("size:", tab4.size)
+
+import numpy as np
+
+tab = np.zeros(4) ############################################
+print(tab)
+print(tab.shape)
+tab2 = np.zeros([2, 3])
+print(tab2)
+print(tab2.shape)
+tab3 = np.zeros([2, 3, 4])
+print(tab3)
+print(tab3.shape)
+
+import numpy as np
+
+tab = np.ones(4) ############################################
+print(tab)
+print(tab.shape)
+tab2 = np.ones([2, 3])
+print(tab2)
+print(tab2.shape)
+tab3 = np.ones([2, 3, 4])
+print(tab3)
+print(tab3.shape)
+
+import numpy as np
+
+print("tab0")
+tab0 = np.diag([3, 4, 5]) ############################################
+print(tab0)
+print("tab1")
+tab1 = np.array([[2, 3, 4], [3, -4, 5], [3, 4, -5]])
+print(tab1)
+tab2 = np.diag(tab1)
+print("tab2")
+print(tab2)
+tab3 = np.diag(tab1, k=1)
+print("tab3")
+print(tab3)
+print("tab4")
+tab4 = np.diag(tab1, k=-2)
+print(tab4)
+print("tab5")
+tab5 = np.diag(np.diag(tab1))
+print(tab5)
+
+import numpy as np
+
+a = np.arange(3)
+print(a)
+b = np.arange(3.0)
+print(b)
+c = np.arange(3, 7)
+print(c)
+d = np.arange(3, 11, 2)
+print(d)
+e = np.arange(0, 1, 0.1)
+print(e)
+f = np.arange(3, 11, 2, dtype=float)
+print(f)
+g = np.arange(3, 10, 2)
+print(g)
+
+
+import numpy as np
+
+a = np.logspace(2.0, 3.0, num=4)
+print(a)
+b = np.logspace(2.0, 3.0, num=4, endpoint=False)
+print(b)
+c = np.logspace(2.0, 3.0, num=4, base=2.0)
+print(c)
+
+import numpy as np
+
+a = np.empty(3)
+print(a)
+b = np.empty(3, dtype=int)
+print(b)

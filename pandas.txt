@@ -1,0 +1,232 @@
+import pandas as pd
+
+Seria - Series
+Ramka danych - DataFrame
+
+
+import pandas as pd
+import numpy as np
+
+s = pd.Series([3, -5, 7, 4])
+print(s)
+print("values")
+print(s.values)
+print(type(s.values))
+t = np.sort(s.values)
+print(t)
+print(s.index)
+print(type(s.index))
+
+import pandas as pd
+
+d = {'key1': 350, 'key2': 700, 'key3': 70}
+k = ['key0', 'key2', 'key3', 'key1']
+s = pd.Series(d, index=k)
+print(s)
+pd.isnull(s)
+pd.notnull(s)
+s.isnull()
+s.notnull()
+s.name = "Wartosc"
+s.index.name = "Klucz"
+print(s)
+
+import pandas as pd
+
+data = {'Country': ['Belgium', 'India', 'Brazil'],
+        'Capital': ['Brussels', 'New Delhi', 'Brasília'],
+        'Population': [11190846, 1303171035, 207847528]}
+frame = pd.DataFrame(data)
+print(frame)
+df = pd.DataFrame(data, columns=['Country', 'Population', 'Capital'])
+print(df)
+
+
+
+import pandas as pd
+
+data = {'Country': ['Belgium', 'India', 'Brazil'],
+        'Capital': ['Brussels', 'New Delhi', 'Brasília'],
+        'Population': [11190846, 1303171035, 207847528]}
+df = pd.DataFrame(data, columns=['Country', 'Population', 'Capital'])
+print(df.iloc[[0], [0]])
+print("--")
+print(df.loc[[0], ['Country']])
+print("--")
+print(df.loc[2])
+print("--")
+print(df.loc[:, 'Capital'])
+print("--")
+print(df.loc[1, 'Capital'])
+
+
+
+#########################################
+loc:
+To metoda indeksowania oparta na etykietach, co oznacza, że używa nazw etykiet kolumn i indeksów wierszy do wyboru danych.
+Działa na podstawie etykiet indeksu oraz etykiet kolumny, co pozwala na wygodniejsze filtrowanie danych.
+Obsługuje zarówno jednostkowe etykiety, jak i zakresy etykiet.
+Działa również z etykietami nieliczbowymi.
+Przykład użycia: df.loc[1:3, ['A', 'B']] - zwraca wiersze od indeksu 1 do 3 (włącznie) oraz kolumny ‘A’ i ‘B’.
+iloc:
+To metoda indeksowania oparta na pozycji, co oznacza, że używa liczbowych indeksów kolumn i wierszy do wyboru danych.
+Działa na podstawie liczbowych indeksów zarówno dla wierszy, jak i kolumn.
+Obsługuje jednostkowe indeksy oraz zakresy indeksów.
+W przypadku używania zakresów indeksów, zakres jest półotwarty, co oznacza, że prawy kraniec nie jest uwzględniany.
+Przykład użycia: df.iloc[1:3, 0:2] - zwraca wiersze od indeksu 1 do 3 (bez 3) oraz kolumny od indeksu 0 do 2 (bez 2).
+
+
+
+#############3 uzupełninanie brakó ########
+import pandas as pd
+
+s = pd.Series([3, -5, 7, 4], index=['a', 'b', 'c', 'd'])
+s2 = pd.Series([7, -2, 3], index=['a', 'c', 'd'])
+print(s + s2)
+print("--")
+print(s.add(s2, fill_value=0))
+print("--")
+print(s.mul(s2, fill_value=2))
+
+
+################ wazne #############
+Funkcja pandas.read_csv
+
+Dokumentacja: link
+
+Wybrane argumenty:
+
+filepath - ścieżka dostępu
+sep=_NoDefault.no_default, delimiter=None - separator
+header='infer' - nagłówek - domyślnie nazwy kolumn, ew. header=None oznacza brak nagłówka
+index_col=None - ustalenie kolumny na indeksy (nazwy wierszy)
+thousands=None - separator tysięczny
+decimal='.' - separator dziesiętny
+Zapis pandas.DataFrame.to_csv
+
+
+
+Funkcja pandas.read_excel
+
+https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html
+
+** Ważne: trzeba zainstalować bibliotekę openpyxl do importu .xlsx oraz xlrd do importu .xls (nie trzeba ich importować w kodzie jawnie w większości wypadków)
+
+Wybrane argumenty:
+
+io - ścieżka dostępu
+sheet_name=0 - nazwa arkusza
+header='infer' - nagłówek - domyślnie nazwy kolumn, ew. header=None oznacza brak nagłówka
+index_col=None - ustalenie kolumny na indeksy (nazwy wierszy)
+thousands=None - separator tysięczny
+decimal='.' - separator dziesiętny
+
+
+##### join
+DataFrame.merge(right, how='inner', on=None, left_on=None, right_on=None, left_index=False, right_index=False, sort=False, suffixes=('_x', '_y'), copy=True, indicator=False, validate=None)
+
+Gdzie:
+
+right: ramka danych, którą chcesz dołączyć do oryginalnej ramki danych.
+how: określa typ łączenia. Dostępne są cztery typy: ‘inner’, ‘outer’, ‘left’ i ‘right’. ‘inner’ to domyślna wartość, która zwraca tylko te wiersze, które mają pasujące klucze w obu ramkach danych.
+on: nazwa lub lista nazw, które mają być używane do łączenia. Musi to być nazwa występująca zarówno w oryginalnej, jak i prawej ramce danych.
+left_on i right_on: nazwy kolumn w lewej i prawej ramce danych, które mają być używane do łączenia. Można to użyć, jeśli nazwy kolumn nie są takie same.
+left_index i right_index: czy indeksy z lewej i prawej ramki danych mają być używane do łączenia.
+sort: czy wynikowa ramka danych ma być posortowany według łączonych kluczy.
+suffixes: sufiksy, które mają być dodane do nazw kolumn, które nachodzą na siebie. Domyślnie to (’_x’, ’_y’).
+copy: czy zawsze kopiować dane, nawet jeśli nie są potrzebne.
+indicator: dodaj kolumnę do wynikowej ramki danych, która pokazuje źródło każdego wiersza.
+validate: sprawdź, czy określone zasady łączenia są spełnione.
+
+
+##### usuwanie duplikatów
+
+
+from numpy import nan as NA
+import pandas as pd
+
+data = pd.DataFrame([[1., 6.5, 3.], [1., NA, NA],
+                     [NA, NA, NA], [NA, 6.5, 3.]])
+cleaned = data.dropna()
+print(cleaned)
+print(data.dropna(how='all'))
+data[4] = NA
+print(data.dropna(how='all', axis=1))
+print(data)
+print(data.fillna(0))
+print(data.fillna({1: 0.5, 2: 0}))
+
+
+import pandas as pd
+import numpy as np
+
+data = pd.Series([1., -999., 2., -999., -1000., 3.])
+print(data)
+print(data.replace(-999, np.nan))
+print(data.replace([-999, -1000], np.nan))
+print(data.replace([-999, -1000], [np.nan, 0]))
+print(data.replace({-999: np.nan, -1000: 0}))
+
+
+
+import pandas as pd
+import numpy as np
+
+data = pd.DataFrame(np.random.randn(1000, 4))
+print(data.describe())
+print("---")
+col = data[2]
+print(col[np.abs(col) > 3])
+print("---")
+print(data[(np.abs(data) > 3).any(axis=1)])
+
+
+
+import pandas as pd
+
+
+data = {
+    'A': ['1', '2', '3', '4', '5', '6'],
+    'B': ['7.5', '8.5', '9.5', '10.5', '11.5', '12.5'],
+    'C': ['x', 'y', 'z', 'x', 'y', 'z']
+}
+df = pd.DataFrame(data)
+
+# Wyświetlenie oryginalnej ramki danych
+print("Oryginalna ramka danych:")
+print(df)
+
+# Zmiana typu danych kolumny 'A' na int
+df['A'] = pd.Series(df['A'], dtype=int)
+
+# Zmiana typu danych kolumny 'B' na float
+df['B'] = pd.Series(df['A'], dtype=float)
+
+# Wyświetlenie ramki danych po zmianie typów
+print("\nRamka danych po zmianie typów:")
+print(df)
+
+
+import pandas as pd
+
+
+data = {
+    'A': ['1', '2', '3', '4', '5', '6'],
+    'B': ['7.5', '8.5', '9.5', '10.5', '11.5', '12.5'],
+    'C': ['x', 'y', 'z', 'x', 'y', 'z']
+}
+df = pd.DataFrame(data)
+
+# Wyświetlenie oryginalnej ramki danych
+print("Oryginalna ramka danych:")
+print(df)
+
+# Zmiana typu danych kolumny 'A' na int
+df['A'] = df['A'].astype(int)
+
+# Zmiana typu danych kolumny 'B' na float
+df['B'] = df['B'].astype(float)
+
+# Wyświetlenie ramki danych po zmianie typów
+print("\nRamka danych po zmianie typów:")
+print(df)

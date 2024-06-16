@@ -1,0 +1,158 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 2, 100)
+plt.plot(x, x, label='linear')
+plt.plot(x, x ** 2, label='quadratic')
+plt.plot(x, x ** 3, label='cubic')
+plt.xlabel('x label')
+plt.ylabel('y label')
+plt.title("Simple Plot")
+plt.legend()
+plt.show()
+
+
+1
+x = np.linspace(0, 2, 100): tworzy tablicę x z 100 równomiernie rozłożonymi wartościami od 0 do 2 (włącznie), korzystając z funkcji linspace z biblioteki numpy.
+2
+plt.plot(x, x, label='linear'): rysuje liniowy wykres (y = x) z wartościami z tablicy x.
+3
+plt.plot(x, x**2, label='quadratic'): rysuje wykres kwadratowy (y = x^2) z wartościami z tablicy x.
+4
+plt.plot(x, x**3, label='cubic'): rysuje wykres sześcienny (y = x^3) z wartościami z tablicy x.
+5
+plt.xlabel('x label'): dodaje etykietę osi X.
+6
+plt.ylabel('y label'): dodaje etykietę osi Y.
+7
+plt.title("Simple Plot"): nadaje tytuł wykresu “Simple Plot”.
+8
+plt.legend(): dodaje legendę do wykresu, która pokazuje etykiety (label) dla poszczególnych linii.
+9
+plt.show(): wyświetla wykres.
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 2, 100)
+plt.plot(x, x, label='linear')
+plt.plot(x, x ** 2, label='quadratic')
+plt.plot(x, x ** 3, label='cubic')
+plt.xlabel('x label')
+plt.ylabel('y label')
+plt.title("Simple Plot")
+plt.legend(loc = 5)
+plt.show()
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.arange(14)
+y = np.cos(5 * x)
+plt.plot(x, y + 2, 'blue', linestyle="-", label="niebieski")
+plt.plot(x, y + 1, 'red', linestyle=":", label="czerwony")
+plt.plot(x, y, 'green', linestyle="--", label="zielony")
+plt.legend(title='Legenda:')
+plt.show()
+
+1
+x = np.arange(14): tworzy tablicę x z wartościami od 0 do 13 (łącznie z 13), korzystając z funkcji arange z biblioteki numpy.
+2
+y = np.cos(5 * x): oblicza wartości funkcji cosinus dla każdej wartości x, przemnożonej przez 5. Wynikowe wartości są zapisane w tablicy y.
+3
+plt.plot(x, y + 2, 'blue', linestyle="-", label="niebieski"): rysuje niebieski wykres z wartościami z tablicy x, a wartości y przesunięte o 2 w górę. Linia jest ciągła (linestyle="-").
+4
+plt.plot(x, y + 1, 'red', linestyle=":", label="czerwony"): rysuje czerwony wykres z wartościami z tablicy x, a wartości y przesunięte o 1 w górę. Linia jest punktowana (linestyle=":").
+5
+plt.plot(x, y, 'green', linestyle="--", label="zielony"): rysuje zielony wykres z wartościami z tablicy x i wartościami y. Linia jest przerywana (linestyle="--").
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.arange(0, 10, 0.2)
+y = np.sin(x)
+fig, ax = plt.subplots()
+ax.plot(x, y)
+plt.show()
+
+1
+x = np.arange(0, 10, 0.2): tworzy tablicę x z wartościami od 0 do 10 (bez 10) z krokiem 0.2, korzystając z funkcji arange z biblioteki numpy.
+2
+y = np.sin(x): oblicza wartości funkcji sinus dla każdej wartości x. Wynikowe wartości są zapisane w tablicy y.
+3
+fig, ax = plt.subplots(): tworzy nową figurę (fig) i osie (ax) za pomocą funkcji subplots z biblioteki matplotlib.pyplot. Figura to obiekt zawierający wszystkie elementy wykresu, takie jak osie, linie wykresu, tekst itp. Osie to obiekt, który definiuje układ współrzędnych, na którym rysowany jest wykres.
+4
+ax.plot(x, y): rysuje wykres wartości y w funkcji x na osiach ax utworzonych wcześniej.
+5
+plt.show(): wyświetla wykres.
+
+
+import matplotlib.pyplot as plt
+
+1fig = plt.figure()
+2ax = fig.add_subplot(111)
+3ax.plot([1, 2, 3, 4], [10, 20, 25, 30], color='lightblue', linewidth=3)
+4ax.scatter([0.3, 3.8, 1.2, 2.5], [11, 25, 9, 26], color='darkgreen', marker='^')
+5ax.set_xlim(0.5, 4.5)
+plt.show()
+
+1
+fig = plt.figure(): tworzy nową figurę (fig). Figura to obiekt zawierający wszystkie elementy wykresu, takie jak osie, linie wykresu, tekst itp.
+2
+ax = fig.add_subplot(111): dodaje nowy zestaw osi (ax) do figury fig za pomocą metody add_subplot. Argument 111 oznacza, że chcemy stworzyć siatkę 1x1 i umieścić nasz wykres na pierwszym (i jedynym) polu tej siatki.
+3
+ax.plot([1, 2, 3, 4], [10, 20, 25, 30], color='lightblue', linewidth=3): rysuje niebieski wykres liniowy o szerokości linii równej 3 na osiach ax, używając listy wartości [1, 2, 3, 4] dla osi X i [10, 20, 25, 30] dla osi Y.
+4
+ax.scatter([0.3, 3.8, 1.2, 2.5], [11, 25, 9, 26], color='darkgreen', marker='^'): dodaje punkty w kształcie trójkątów (‘^’) na osiach ax w miejscach określonych przez listy wartości [0.3, 3.8, 1.2, 2.5] dla osi X i [11, 25, 9, 26] dla osi Y. Punkty są w kolorze ciemnozielonym.
+5
+ax.set_xlim(0.5, 4.5): ustawia zakres wartości osi X na osiach ax od 0.5 do 4.5.
+
+
+import matplotlib.pyplot as plt
+
+house_prices = [230000, 350000, 480000, 280000, 420000, 610000, 390000, 580000]
+square_meters = [90, 140, 210, 100, 170, 260, 150, 240]
+1plt.scatter(square_meters, house_prices, color='blue', marker='o')
+plt.xlabel('Metraż [m2]')
+plt.ylabel('Cena domu [PLN]')
+plt.title('Związek między metrażem a ceną domu')
+plt.show()
+
+
+plt.scatter(square_meters, house_prices, color='blue', marker='o'): tworzy wykres punktowy (scatter plot) z metrażem domów na osi X (square_meters) i cenami domów na osi Y (house_prices). Punkty są koloru niebieskiego (color='blue') i mają kształt kółka (marker='o').
+
+PNG (Portable Network Graphics) - plik rasterowy, popularny format do zapisywania obrazów w Internecie.
+JPEG (Joint Photographic Experts Group) - plik rasterowy, popularny format do zapisywania obrazów fotograficznych.
+SVG (Scalable Vector Graphics) - plik wektorowy, dobrze skalujący się i zachowujący jakość na różnych rozdzielczościach.
+PDF (Portable Document Format) - format dokumentów wektorowych, popularny w druku i przeglądaniu dokumentów.
+EPS (Encapsulated PostScript) - plik wektorowy, często używany w publikacjach naukowych i materiałach drukowanych.
+TIFF (Tagged Image File Format) - plik rasterowy, popularny w profesjonalnym druku i grafice.
+WebP to nowoczesny format obrazów opracowany przez Google, który oferuje lepszą kompresję oraz niższe straty jakości w porównaniu do popularnych formatów JPEG i PNG, co przyczynia się do szybszego ładowania stron internetowych i oszczędności transferu danych.
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.arange(0, 10)
+y = x ^ 2
+# Labeling the Axes and Title
+plt.title("Graph Drawing")
+plt.xlabel("Time")
+plt.ylabel("Distance")
+
+# Formatting the line colors
+plt.plot(x, y, 'r')
+
+# Formatting the line type
+plt.plot(x, y, '>')
+
+# save in pdf formats
+plt.savefig('timevsdist.pdf', format='pdf')
